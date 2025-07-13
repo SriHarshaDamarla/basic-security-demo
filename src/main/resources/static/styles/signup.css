@@ -1,0 +1,9 @@
+.last-letter {
+  color: red;
+  font-weight: bold;
+}
+
+.field-error {
+  color: red;
+  font-size: smaller;
+}

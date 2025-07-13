@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
+:root {
+  --primary-color: #084fc2;
+  --secondary-color: #0d3f6a;
+  --border-no-focus: #bfe8f9;
+  --border-focus: #175e9d;
+  --log-out-background: #00a836;
+  --log-out-font: #b7ec78;
+  --error-background: #ff75ab;
+  --error-font: #9f005d;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+
+.position-relative {
+  position: relative;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.link-icon {
+  color: inherit;
+}
+
+.error {
+  color: var(--error-font);
+  background-color: var(--error-background);
+}
+
+.success {
+  color: var(--log-out-font);
+  background-color: var(--log-out-background);
+}
+
+.msg-box {
+  padding: 10px;
+  border-radius: 6px;
+}
+
+button {
+  outline: none;
+  font-family: inherit;
+  border-style: none;
+  background: none;
+  padding: 10px 0px;
+  font-weight: 900;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 6px;
+  width: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.login-box {
+  gap: 40px;
+  max-width: 375px;
+  width: 85%;
+}
+
+.login-box {
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.15),
+    0 4px 8px 2px rgba(0, 0, 0, 0.1), 0 8px 16px 2px rgba(0, 0, 0, 0.05);
+}
+
+.icon {
+  font-size: 50px;
+  color: var(--primary-color);
+}
+
+form {
+  width: 100%;
+  gap: 30px;
+}
+
+input {
+  width: 100%;
+  font: inherit;
+  font-family: inherit;
+  font-weight: 200;
+  outline: none;
+  border-style: none;
+  border: 2px solid var(--border-no-focus);
+  border-radius: 6px;
+  font-size: 15px;
+  padding: 5px;
+}
+
+#password,
+#confirmPassword{
+  padding: 5px 30px 5px 5px;
+}
+
+.divider {
+  position: relative;
+  width: 100%;
+  border-top: 1px solid grey;
+}
+
+.divider span {
+  padding: 0 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+input:focus {
+  border: 2px solid var(--border-focus);
+}
+
+.inner-section {
+  font-size: 15px;
+  width: 100%;
+  gap: 10px;
+}
+
+.google-button {
+  width: auto;
+  padding: 10px 20px;
+}
+
+#pwd-toggle,
+#pwd-toggle-a,
+#pwd-toggle-b {
+  position: absolute;
+  background: none;
+  border-style: none;
+  outline: none;
+  padding: 0;
+  width: auto;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+  cursor: pointer;
+}

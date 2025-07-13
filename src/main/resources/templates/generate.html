@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password</title>
+    <link rel="stylesheet" th:href="@{/styles/login.css}" />
+  </head>
+  <body class="flex-column flex-center">
+    <section class="flex-column flex-center login-box">
+      <h1>Enter Your Username</h1>
+      <div th:if="${param.error}" class="error msg-box">
+        User not found!
+      </div>
+      <form th:action="@{/fpwd/generate}" method="get" class="flex-column flex-center">
+        <section class="flex-column inner-section">
+          <input type="text" name="username" id="username" />
+        </section>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </body>
+</html>

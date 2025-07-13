@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up!</title>
+    <link rel="stylesheet" th:href="@{styles/login.css}" />
+    <link rel="stylesheet" th:href="@{styles/signup.css}" />
+    <script
+      src="https://kit.fontawesome.com/bbf93ed734.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="flex-column flex-center">
+    <section class="flex-column flex-center login-box">
+      <i class="fa-solid fa-id-card icon"></i>
+      <h1>Enter your details</h1>
+      <div class="error msg-box" th:if="${param.error}">All fields are mandatory</div>
+      <form th:action="@{/registerUser}" method="post" th:object="${signupForm}" class="flex-column flex-center">
+        <section class="flex-column inner-section">
+          <label for="firstName" class="label">First Name *</label>
+          <input type="text" th:field="*{firstName}" id="firstName" required/>
+          <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="field-error"></span>
+        </section>
+        <section class="flex-column inner-section">
+          <label for="lastName" class="label">Last Name *</label>
+          <input type="text" th:field="*{lastName}" id="lastName" required/>
+          <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="field-error"></span>
+        </section>
+        <section class="flex-column inner-section">
+          <label for="username" class="label">Username for login *</label>
+          <input type="text" th:field="*{username}" id="username" required/>
+          <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="field-error"></span>
+        </section>
+        <section class="flex-column inner-section">
+          <label for="password" class="label">Password *</label>
+          <div style="position: relative">
+            <input type="password" th:field="*{password}" id="password" required/>
+            <button id="pwd-toggle-a">
+              <i class="fa-solid fa-eye-slash" id="toggle-icon-a"></i>
+            </button>
+          </div>
+          <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="field-error"></span>
+        </section>
+        <section class="flex-column inner-section">
+          <label for="confirmPassword" class="label">Confirm Password *</label>
+          <div style="position: relative">
+            <input
+              type="password"
+              th:field="*{confirmPassword}"
+              id="confirmPassword"
+              required
+            />
+            <button id="pwd-toggle-b">
+              <i class="fa-solid fa-eye-slash" id="toggle-icon-b"></i>
+            </button>
+          </div>
+          <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="field-error"></span>
+        </section>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>
+        Already have an account?
+        <a th:href="@{/login}"
+          >Sign In <i class="fa-solid fa-arrow-right link-icon"></i
+        ></a>
+      </p>
+    </section>
+    <script>
+      document.querySelectorAll("label").forEach((el) => {
+        const text = el.textContent;
+        if (text.length > 1) {
+          el.innerHTML =
+            text.slice(0, -1) +
+            '<span class="last-letter">' +
+            text.slice(-1) +
+            "</span>";
+        }
+      });
+
+      const pwdToggleA = document.getElementById("pwd-toggle-a");
+      const pwdToggleB = document.getElementById("pwd-toggle-b");
+      const passwordInput = document.getElementById("password");
+      const confirmPasswordInput = document.getElementById("confirmPassword");
+      const toggleIconA = document.getElementById("toggle-icon-a");
+      const toggleIconB = document.getElementById("toggle-icon-b");
+      pwdToggleA.addEventListener("click", (e) => {
+        toggleEle(passwordInput, toggleIconA, e);
+      });
+      pwdToggleB.addEventListener("click", (e) => {
+        toggleEle(confirmPasswordInput, toggleIconB, e);
+      });
+
+      function toggleEle(pInput, pIcon, e) {
+        e.preventDefault();
+        pInput.focus();
+        if (pInput.type === "password") {
+          pInput.type = "text";
+          pIcon.classList.remove("fa-eye-slash");
+          pIcon.classList.add("fa-face-grin-wide");
+        } else {
+          pInput.type = "password";
+          pIcon.classList.remove("fa-face-grin-wide");
+          pIcon.classList.add("fa-eye-slash");
+        }
+      }
+    </script>
+  </body>
+</html>

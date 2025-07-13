@@ -1,0 +1,122 @@
+:root {
+  --width-max: 1500px;
+  interpolate-size: allow-keywords;
+}
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  max-width: var(--width-max);
+  padding-top: 30px;
+  border-radius: 25px;
+}
+
+.top-bar-content {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.15),
+    0 4px 8px 2px rgba(0, 0, 0, 0.1), 0 8px 16px 2px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+  font-weight: 700;
+  font-size: larger;
+}
+
+.menu {
+  gap: 15px;
+}
+
+.menu div {
+  padding: 10px;
+  cursor: pointer;
+  color: #717978;
+}
+
+.menu div:hover {
+  background-color: #f3f3f3;
+  border-radius: 4px;
+}
+
+.active {
+  background-color: #069cd742 !important;
+  border-radius: 4px !important;
+  color: #069cd7 !important;
+}
+
+.profile {
+  gap: 20px;
+}
+
+.profile div {
+  cursor: pointer;
+}
+
+.profile .card {
+  position: relative;
+  padding: 10px 15px;
+  background-color: #e2e2e2;
+  border-radius: 20px;
+}
+
+.card-dropdown {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(105%);
+  overflow: hidden;
+  width: max-content;
+  height: 0;
+  display: none;
+  padding: 8px 15px 5px 15px;
+  border-radius: 8px;
+  background-color: #fffff9;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.15),
+    0 4px 8px 2px rgba(0, 0, 0, 0.1), 0 8px 16px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.card-dropdown form button {
+  margin-top: 5px;
+  color: #e31c65;
+  font-family: inherit;
+  text-align: left;
+  font-size: inherit;
+  font-weight: inherit;
+  background: none;
+  padding: 12px;
+  transition: all 0.2s;
+}
+
+.card-dropdown form button:hover {
+  color: white;
+  background-color: #e31c65;
+  border-radius: 8px;
+}
+
+.card-dropdown ul {
+  list-style: none;
+  border-bottom: 1px solid #adbdc5;
+  padding-bottom: 5px;
+}
+
+.down {
+  transition: all 0.2s;
+}
+
+.rotator {
+  transform: rotate(180deg);
+}
+.card-dropdown ul li {
+  padding: 12px;
+  transition: all 0.2s;
+}
+
+.card-dropdown ul li:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  background-color: #7996eb;
+}
