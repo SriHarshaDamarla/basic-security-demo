@@ -67,7 +67,7 @@ public class ForgotPasswordController {
     @GetMapping("/reset/{id}")
     public String getResetPassPage(@PathVariable String id, Model model) {
         LocalDateTime expiryTime = idWithExpiry.get(id);
-        if (expiryTime == null || LocalDateTime.now().isBefore(expiryTime)) {
+        if (expiryTime == null || LocalDateTime.now().isAfter(expiryTime)) {
             return "redirect:/login?invalidId";
         }
         model.addAttribute("id",id);
